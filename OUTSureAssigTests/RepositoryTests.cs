@@ -12,6 +12,10 @@ namespace OUTSureAssigTests
     public class RepositoryTests
     {
         private string DataFileName = @"C:\Users\WietzM\Documents\visual studio 2013\Projects\OUTsureAssig\OUTsureAssig\bin\Debug\People.txt";
+
+        /// <summary>
+        /// Test the PeopleRepository.GetAll() method
+        /// </summary>
         [TestMethod]
         public void PeopleRepositoryGetAllTest()
         {
@@ -19,9 +23,13 @@ namespace OUTSureAssigTests
             PersonRepository personRep = new PersonRepository(ctx);
             List<Person> people = personRep.GetAll();
 
+            //There should be for persons in the people list
             Assert.IsTrue(people.Count == 4);
         }
 
+        /// <summary>
+        /// Test the PeopleSortRepository.SortByAddress() method.
+        /// </summary>
         [TestMethod]
         public void PeopleRepositorySortByAddressTest()
         {
@@ -29,7 +37,8 @@ namespace OUTSureAssigTests
             PersonSortRepository sortRep = new PersonSortRepository(ctx);
             string[] sortedAddresses = sortRep.SortByAddressAsc();
 
-            string[] testInput = new string[]
+            //The expected output
+            string[] testOutput = new string[]
             {
                 "12 Acton St",
                 "98 Chauser St",
@@ -37,10 +46,17 @@ namespace OUTSureAssigTests
                 "22 Jones Rd"  
             };
 
-            CollectionAssert.AreEqual(sortedAddresses, testInput);
-            Assert.IsTrue(sortedAddresses.ToList().SequenceEqual(testInput));
+            //Assert if the output is equel to the expected output.
+            CollectionAssert.AreEqual(sortedAddresses, testOutput);
+
+            //Assert if the sequence of the output is the same as that of the expected output.
+            Assert.IsTrue(sortedAddresses.ToList().SequenceEqual(testOutput));
         }
 
+
+        /// <summary>
+        /// Test the PersonSortRepository.GetSortedNameFreq() method.
+        /// </summary>
         [TestMethod]
         public void GetSortedNameFreqTest()
         {
@@ -49,7 +65,8 @@ namespace OUTSureAssigTests
 
             string[] sortedFreq = sortRep.GetSortedNameFreq();
 
-            string[] testInput = new string[]
+            //The expected output
+            string[] testOutput = new string[]
             {
                 "Johnson, 2",
                 "Brown, 1",
@@ -60,8 +77,11 @@ namespace OUTSureAssigTests
                 "Tim, 1"
             };
 
-            CollectionAssert.AreEqual(sortedFreq, testInput);
-            Assert.IsTrue(sortedFreq.ToList().SequenceEqual(testInput));
+            //Assert if the output is equel to the expected output.
+            CollectionAssert.AreEqual(sortedFreq, testOutput);
+
+            //Assert if the sequence of the output is the same as that of the expected output.
+            Assert.IsTrue(sortedFreq.ToList().SequenceEqual(testOutput));
         }
     }
 }

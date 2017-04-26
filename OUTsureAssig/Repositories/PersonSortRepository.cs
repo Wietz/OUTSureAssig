@@ -9,10 +9,20 @@ using System.Threading.Tasks;
 
 namespace OUTsureAssig.Repositories
 {
+    /// <summary>
+    /// PersonSortRepository extends PersonRepository. This class exposes two methods
+    /// that allows for sorting Person.Addresses by street name and to create a sorted list of names/surnames
+    /// with the number of instances of each name/surname.
+    /// </summary>
     public class PersonSortRepository : PersonRepository, IPersonSortRepository
     {
 
         public PersonSortRepository(IDbContext dbContext) : base(dbContext) { }
+
+        /// <summary>
+        /// Sorts all the addresses in the People database.
+        /// </summary>
+        /// <returns>A string array that can be written out to a text file.</returns>
         public string[] SortByAddressAsc()
         {
             List<Person> allPeople = this.GetAll();
@@ -38,6 +48,14 @@ namespace OUTsureAssig.Repositories
             return addrStrings.ToArray();
         }
 
+
+        /// <summary>
+        /// Creates a sorted list of names/surnames and the frequency/count of each.
+        /// </summary>
+        /// <returns>
+        /// A string array with each item in the format "Name, Count" e.g:"Jones, 2"
+        /// These items can then be written out to a test file.
+        /// </returns>
         public string[] GetSortedNameFreq()
         {
             List<Person> allPeople = this.GetAll();

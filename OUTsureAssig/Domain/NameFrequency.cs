@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace OUTsureAssig.Domain
 {
+    /// <summary>
+    /// NameFrequency domain model to create objects with a name/surname and count/frequency
+    /// value. These can then be used in an IEnumerable list for further processing.
+    /// </summary>
     public class NameFrequency
     {
         public string Name { get; set; }

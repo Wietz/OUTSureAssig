@@ -8,7 +8,12 @@ namespace OUTSureAssigTests
     public class DbContextTests
     {
         private string DataFileName = @"C:\Users\WietzM\Documents\visual studio 2013\Projects\OUTsureAssig\OUTsureAssig\bin\Debug\People.txt";
+
+        /// <summary>
+        /// Test the data load process for the CSVFileContext class.
+        /// </summary>
         [TestMethod]
+        
         public void DbContextDataLoadTest()
         {
             CSVFileContext dbCtx = new CSVFileContext(DataFileName);

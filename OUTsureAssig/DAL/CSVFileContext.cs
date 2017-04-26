@@ -8,6 +8,12 @@ using System.IO;
 
 namespace OUTsureAssig.DAL
 {
+    /// <summary>
+    /// A data context  class that provides access to the CSV file for the Person data.
+    /// When the class is instantiated, data is loaded from the CSV file.
+    /// The format of the CSV file is:
+    /// Name,Surname,Address
+    /// </summary>
     public class CSVFileContext : IDbContext
     {
         public string FilePath { get; set; }
