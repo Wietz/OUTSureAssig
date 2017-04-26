@@ -14,6 +14,7 @@ namespace OUTsureAssig
         {
             try
             {
+                string appPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
                 string dataFileName = "People.txt";
 
                 CSVFileContext ctx = new CSVFileContext(dataFileName);

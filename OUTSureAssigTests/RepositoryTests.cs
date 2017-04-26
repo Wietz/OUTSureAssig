@@ -11,7 +11,7 @@ namespace OUTSureAssigTests
     [TestClass]
     public class RepositoryTests
     {
-        private string DataFileName = @"C:\Users\WietzM\Documents\visual studio 2013\Projects\OUTsureAssig\OUTsureAssig\bin\Debug\People.txt";
+        private string DataFileName = @"People.txt";
 
         /// <summary>
         /// Test the PeopleRepository.GetAll() method
