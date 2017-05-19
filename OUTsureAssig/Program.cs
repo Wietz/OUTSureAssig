@@ -17,7 +17,7 @@ namespace OUTsureAssig
                 string dataFileName = "People.txt";
 
                 CSVFileContext ctx = new CSVFileContext(dataFileName);
-                PersonSortRepository sortRep = new PersonSortRepository(ctx);
+                IPersonSortRepository sortRep = new PersonSortRepository(ctx);
                 string[] sortedAddresses = sortRep.SortByAddressAsc();
                 Utilities.OutputTestFile.WriteData("SortedAddresses.txt", sortedAddresses);
 
